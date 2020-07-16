@@ -34,7 +34,7 @@ MEDIA_URL = '/media/'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
-DEBUG = False
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['*']
@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions', # session 会话
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'app_sayhi',
+    'app_sayhi',
     # app 在setting的注册顺序会影响template的寻找顺序！
 
 ]
@@ -134,7 +134,7 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'zh-hans'
 
 # 把国际时区改为中国时区（东八区）
-TIME_ZONE = 'Asia/Hongkong'
+TIME_ZONE = 'Asia/Shanghai'
 USE_I18N = True
 
 USE_L10N = True

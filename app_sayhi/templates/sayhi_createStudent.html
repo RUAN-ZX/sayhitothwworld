@@ -1,0 +1,19 @@
+<!-- templates/users/add.html -->
+<!doctype html>
+<html>
+<head>
+    <title>Add</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h1>Add student + message</h1>
+
+    <form method="post" enctype="multipart/form-data" action="{% url 'app_sayhi:createAliasStudentMessage' %}">
+    <ul>
+        <li>alias<input type="text" name=alias></li>
+        <li>text<input type="text" name=text></li>
+        <li><input type="submit" value="OK"/></li>
+    </ul>
+    </form>
+</body>
+</html>

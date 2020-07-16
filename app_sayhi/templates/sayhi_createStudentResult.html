@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<html>
+<head>
+    <title>Detail</title>
+    <meta charset="utf-8">
+</head>
+<body>
+
+<ul>
+    <li>studentID: {{ student.studentId }}</li>
+    <li>Alias: {{ student.studentAlias }}</li>
+    <li>Gender: {{ student.studentGender }}</li>
+    <li>Phone: {{ student.studentPhone }}</li>
+    <li>avatarPath: {{ student.studentAvatar }}</li>
+    <li><img width="200" height="300" src="media/sayhi/avatar/{{ student.studentAvatar }}"></li>
+</ul>
+
+<ul>
+	<li>studentId: {{ message.msSID }}</li>
+    <li>id: {{ message.msId }}</li>
+	<li>Text：{{ message.msText}}</li>
+    <li>likeCount: {{ message.msLikeCount }}</li>
+
+    <li>DislikeCount: {{ message.msDisLikeCount }}</li>
+	<li>Time: {{ message.msTime }}</li>
+	
+
+</ul>
+
+</body>
+</html>

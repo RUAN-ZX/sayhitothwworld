@@ -1,22 +1,7 @@
-import django
 from django.db import models
 from django.utils.timezone import now
+# student,teacher,message,comment,course,star
 
-from django.urls import reverse  # Used to generate URLs by reversing
-
-from django.contrib.auth.models import User
-from datetime import date
-import uuid,hashlib
-import random
-import time
-def get_unique_str(length):
-    uuid_str = str(uuid.uuid4())
-    random.seed(time.time())
-    offset = random.randrange(1, 30)
-    md5 = hashlib.md5()
-    random.seed(time.time())
-    md5.update(uuid_str.encode('utf-8'))
-    return md5.hexdigest()[offset:length+offset]
 
 # student 学生
 # 信誉分动态生成
