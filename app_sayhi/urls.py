@@ -10,6 +10,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 urlpatterns = [
+    path('',views.index,name='index'),
     re_path('createAliasStudentMessage/$',views.createAliasStudentMessage,name='createAliasStudentMessage'),
     re_path('createStudent/$',views.createStudent,name='createStudent'),
     re_path('createTeacher/$',views.createTeacher,name='createTeacher'),

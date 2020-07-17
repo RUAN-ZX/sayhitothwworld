@@ -47,8 +47,15 @@ def storing(t,request,cmd):
 
 # 首页 通过Alias创建用户以及message
 # 预先预存100张头像：）
+
+
+def index(request):
+    if request.method == "GET":
+        return render(request, 'pages/index.html')
+
+
 def createAliasStudentMessage(request):
-    t = int(time())
+
     dictJson = {}
     studentI = student()
     messageI = message()
@@ -76,9 +83,6 @@ def createAliasStudentMessage(request):
             messageI.msText = request.POST.get('text')
             messageI.msSID = studentI.studentId
             messageI.msLikeCount = 1
-
-
-
 
             messageI.save()
 
