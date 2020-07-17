@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import os
 import random
 from time import time
-from django.db.models import Q
+from django.shortcuts import reverse,redirect
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 import uuid,hashlib
@@ -51,6 +51,7 @@ def storing(t,request,cmd):
 
 def index(request):
     if request.method == "GET":
+        # return redirect(reverse("app_sayhi:index"))
         return render(request, 'pages/index.html')
 
 
@@ -65,8 +66,8 @@ def createAliasStudentMessage(request):
             studentI.studentAlias = request.POST.get('alias')
             if student.objects.filter(studentAlias=studentI.studentAlias):
                 dictJson['code'] = -1
-                return JsonResponse(dictJson)
-
+                # return render(request, 'pages/index.html')
+                return redirect(reverse("app_sayhi:index"))
             # 随机数 随机选取头像文件
             # 路径通过nginx 静态文件访问 统一决定！！ 这里只是名字
             rand = random.randrange(1, 80)
@@ -86,17 +87,21 @@ def createAliasStudentMessage(request):
 
             messageI.save()
 
-            return render(request, 'sayhi_createStudentResult.html', context={"student": studentI,"message":messageI})
+            # return render(request, 'sayhi_createStudentResult.html', context={"student": studentI,"message":messageI})
+            return redirect(reverse("app_sayhi:index"))
+
         except AttributeError:
             dictJson['code'] = -3
-            return JsonResponse(dictJson)
+            # return JsonResponse(dictJson)
+            return redirect(reverse("app_sayhi:index"))
         except Exception as e:
             print(e)
             dictJson['code'] = -4
-            return JsonResponse(dictJson)
+            # return JsonResponse(dictJson)
+            return redirect(reverse("app_sayhi:index"))
     else:
-        return render(request, 'sayhi_createStudent.html')
-
+        return redirect(reverse("app_sayhi:index"))
+        # pass
 # 通过注册登录生成的学生
 def createStudent(request):
     t = int(time())
